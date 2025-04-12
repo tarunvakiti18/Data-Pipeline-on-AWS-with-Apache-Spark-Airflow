@@ -13,16 +13,18 @@ spark.sparkContext.setLogLevel("ERROR")
 print("===Hello====")
 
 # Snowflake connection options
+import os
+
 snowflake_options = {
-    "sfURL": "https://roazjrj-sk70838.snowflakecomputing.com",
-    "sfAccount": "roazjrj",
-    "sfUser": "sivavasusaia",
-    "sfPassword": "Aditya908",
-    "sfDatabase": "zeyodb",
-    "sfSchema": "zeyoschema",
-    "sfRole": "ACCOUNTADMIN",
-    "sfWarehouse": "COMPUTE_WH",
-    "dbtable": "srctab"
+    "sfURL": os.getenv("SF_URL"),
+    "sfAccount": os.getenv("SF_ACCOUNT"),
+    "sfUser": os.getenv("SF_USER"),
+    "sfPassword": os.getenv("SF_PASSWORD"),
+    "sfDatabase": os.getenv("SF_DATABASE"),
+    "sfSchema": os.getenv("SF_SCHEMA"),
+    "sfRole": os.getenv("SF_ROLE"),
+    "sfWarehouse": os.getenv("SF_WAREHOUSE"),
+    "dbtable": os.getenv("SF_DBTABLE")
 }
 
 # Read data from Snowflake
